@@ -36,8 +36,7 @@ jobs:
 #             ssh -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
             
 #              DIR="/home/ubuntu/server"
-             
-#              if [ ! -d $DIR ]
+             #              if [ ! -d $DIR ]
 #              then
 #               mkdir server &&
 #               git clone https://github.com/data-doll/demo.git server &&
