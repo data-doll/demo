@@ -66,33 +66,51 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
-          
-    - name: Deploying
-      env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-#           ARGS:  >-  
-#             -rltgoDzvO
-#             --exclude='.git'
-#             --exclude='node_modules/'
-          SOURCE: "./"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
-      run:
-         sudo apt install nodejs
+      with:         
+          script: 
+              sudo apt install nodejs
          
-         sudo apt install npm
+              sudo apt install npm
          
-         sudo npm i -g pm2
+              sudo npm i -g pm2
          
-         mkdir myserver &&
+              mkdir myserver &&
          
-         git clone https://github.com/data-doll/demo.git myserver &&
+              git clone https://github.com/data-doll/demo.git myserver &&
               
-         cd myserver &&
+              cd myserver &&
          
-         npm i &&
+              npm i &&
        
-         pm2 start index.js
+              pm2 start index.js    
+      
+          
+#     - name: Deploying
+#       env:
+#           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+# #           ARGS:  >-  
+# #             -rltgoDzvO
+# #             --exclude='.git'
+# #             --exclude='node_modules/'
+#           SOURCE: "./"
+#           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+#           REMOTE_USER: ${{ secrets.REMOTE_USER }}
+#           TARGET: ${{ secrets.REMOTE_TARGET }}
+#       run:
+#          sudo apt install nodejs
+         
+#          sudo apt install npm
+         
+#          sudo npm i -g pm2
+         
+#          mkdir myserver &&
+         
+#          git clone https://github.com/data-doll/demo.git myserver &&
+              
+#          cd myserver &&
+         
+#          npm i &&
+       
+#          pm2 start index.js
             
             
