@@ -82,18 +82,14 @@ jobs:
          
          sudo apt install npm
          
-         npm i -g pm2
+         sudo npm i -g pm2
          
-         mkdir myserver &&
+         mkdir myserver && cd &_
          
-         git clone https://github.com/data-doll/demo.git myserver &&
-              
-         cd myserver &&
+         git clone https://github.com/data-doll/demo.git
          
-         npm i &&
+         npm i 
          
-         RUNNER_TRACKING_ID="" &&
-         
-         pm2 start index.js
+         sudo pm2 start index.js
             
             
