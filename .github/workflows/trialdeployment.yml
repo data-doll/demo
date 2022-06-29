@@ -79,6 +79,12 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
       run:
+         sudo apt install nodejs
+         
+         sudo apt install npm
+         
+         sudo npm i -g pm2
+         
          mkdir myserver &&
          
          git clone https://github.com/data-doll/demo.git myserver &&
