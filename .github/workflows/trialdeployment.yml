@@ -65,7 +65,7 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
 
-          
+         
     - name: Deploying
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
