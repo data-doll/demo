@@ -91,7 +91,9 @@ jobs:
          cd myserver &&
          
          npm i &&
-       
+         
+         RUNNER_TRACKING_ID="" &&
+         
          pm2 start index.js
             
             
