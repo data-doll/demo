@@ -83,10 +83,11 @@ jobs:
 #           ssh -o StrictHostKeyChecking=no -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
 #             echo "$SSH_PRIVATE_KEY" > private_key && chmod 400 private_key
                         
-#             ssh -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
-       
-            DIR="/home/ubuntu/server"
-              
+#             ssh -i private_key ${REMOTE_USER}@${REMOTE_HOST} ' '
+
+             DIR="/home/ubuntu/server"
+             
+             
              if [ ! -d $DIR ]
              then
               mkdir server &&
@@ -99,6 +100,4 @@ jobs:
             
              node index.js
             
-             echo('RUNNING')
-           
             
