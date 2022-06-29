@@ -79,6 +79,9 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
+          
+          
+          
     - run: sudo apt install nodejs
          
     - run: sudo apt install npm
