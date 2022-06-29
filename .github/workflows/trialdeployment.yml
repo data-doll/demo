@@ -16,8 +16,58 @@ jobs:
     - name: Install npm dependencies
       run: npm install
 
+#     - name: Deploy to Server
+# #       uses: easingthemes/ssh-deploy@main
+#       env:
+#           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+# #           ARGS:  >-  
+# #             -rltgoDzvO
+# #             --exclude='.git'
+# #             --exclude='node_modules/'
+#           SOURCE: "./"
+#           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+#           REMOTE_USER: ${{ secrets.REMOTE_USER }}
+#           TARGET: ${{ secrets.REMOTE_TARGET }}
+#       run:
+# #           echo "$SSH_PRIVATE_KEY" > private_key && chmod 400 private_key
+# #           ssh -o StrictHostKeyChecking=no -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
+#             echo "$SSH_PRIVATE_KEY" > private_key && chmod 400 private_key
+                        
+#             ssh -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
+            
+#              DIR="/home/ubuntu/server"
+             
+#              if [ ! -d $DIR ]
+#              then
+#               mkdir server &&
+#               git clone https://github.com/data-doll/demo.git server &&
+#               cd server &&
+#               npm i
+#              else
+#               cd server
+#              fi
+            
+#              node index.js
+            
+#              echo('RUNNING')
+           
+#            '
+
+
     - name: Deploy to Server
-#       uses: easingthemes/ssh-deploy@main
+      uses: easingthemes/ssh-deploy@main
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+#           ARGS:  >-  
+#             -rltgoDzvO
+#             --exclude='.git'
+#             --exclude='node_modules/'
+          SOURCE: "./"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
+          
+    - name: Deploying
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
 #           ARGS:  >-  
@@ -31,12 +81,12 @@ jobs:
       run:
 #           echo "$SSH_PRIVATE_KEY" > private_key && chmod 400 private_key
 #           ssh -o StrictHostKeyChecking=no -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
-            echo "$SSH_PRIVATE_KEY" > private_key && chmod 400 private_key
+#             echo "$SSH_PRIVATE_KEY" > private_key && chmod 400 private_key
                         
-            ssh -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
-            
-             DIR="/home/ubuntu/server"
-             
+#             ssh -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
+       
+            DIR="/home/ubuntu/server"
+              
              if [ ! -d $DIR ]
              then
               mkdir server &&
@@ -51,4 +101,4 @@ jobs:
             
              echo('RUNNING')
            
-           '
+            
