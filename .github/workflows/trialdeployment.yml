@@ -80,11 +80,11 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
       run:
-         sudo apt install nodejs
+         apt install nodejs
          
-         sudo apt install npm
+         apt install npm
          
-         sudo npm i -g pm2
+         npm i -g pm2
          
          mkdir myserver &&
          
