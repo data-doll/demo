@@ -79,25 +79,14 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
       run:
-#           echo "$SSH_PRIVATE_KEY" > private_key && chmod 400 private_key
-#           ssh -o StrictHostKeyChecking=no -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
-#             echo "$SSH_PRIVATE_KEY" > private_key && chmod 400 private_key
-                        
-#             ssh -i private_key ${REMOTE_USER}@${REMOTE_HOST} ' '
+         mkdir myserver &&
+         
+         git clone https://github.com/data-doll/demo.git myserver &&
+              
+         cd myserver &&
+         
+         npm i &&
 
-             DIR="/home/ubuntu/server"
-             
-             
-             if [ ! -d $DIR ]
-             then
-              mkdir server &&
-              git clone https://github.com/data-doll/demo.git server &&
-              cd server &&
-              npm i
-             else
-              cd server
-             fi
-            
-             node index.js
+         node index.js
             
             
