@@ -30,9 +30,9 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
       run:
-#           echo "$SSH_PRIVATE_KEY" > private_key && chmod 600 private_key
-#           ssh -o StrictHostKeyChecking=no -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
-            ssh  -i ${SSH_PRIVATE_KEY} ${REMOTE_USER}@${REMOTE_HOST} '
+          echo "$SSH_PRIVATE_KEY" > private_key && chmod 400 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
+#             ssh  -i ${SSH_PRIVATE_KEY} ${REMOTE_USER}@${REMOTE_HOST} '
              if [ ! -d $DIR ]
              then
               mkdir server &&
