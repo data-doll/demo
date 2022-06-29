@@ -52,7 +52,6 @@ jobs:
            
 #            '
 
-
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
@@ -79,9 +78,9 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
       run:
-         apt install nodejs
+         sudo apt install nodejs
          
-         apt install npm
+         sudo apt install npm
          
          npm i -g pm2
          
