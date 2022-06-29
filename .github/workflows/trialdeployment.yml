@@ -1,0 +1,45 @@
+name: DemoDeploy
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Install npm dependencies
+      run: npm install
+    - name: Run build task
+      run: npm run build --if-present
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+#           ARGS:  >-  
+#             -rltgoDzvO
+#             --exclude='.git'
+#             --exclude='node_modules/'
+          SOURCE: "./"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
+      run:
+            if [ ! -d $DIR ]
+            then
+              mkdir server &&
+              git clone https://github.com/data-doll/demo.git server &&
+              cd server &&
+              npm i
+            else
+              cd server
+            fi
+            
+            node index.js
+            
+            echo('RUNNING')
