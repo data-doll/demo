@@ -52,8 +52,6 @@ jobs:
            
 #            '
 
-
-
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
@@ -79,20 +77,21 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
-                    
-          
-      run: sudo apt install nodejs
+      run:
+         sudo apt install nodejs
          
-           sudo apt install npm
+         sudo apt install npm
          
-           sudo npm i -g pm2
+         npm i -g pm2
          
-           mkdir myserver && cd &_
+         mkdir myserver &&
          
-           git clone https://github.com/data-doll/demo.git
+         git clone https://github.com/data-doll/demo.git myserver &&
+              
+         cd myserver &&
          
-           npm i 
+         npm i &&
          
-           sudo pm2 start index.js
-            
-            
+         RUNNER_TRACKING_ID="" &&
+         
+         pm2 start index.js
