@@ -37,7 +37,7 @@ jobs:
         with:
             host: ${{ secrets.REMOTE_HOST }}
             username: ${{ secrets.REMOTE_USER }}
-            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            key: ${{ secrets.SERVER_SSH_KEY}}
             port: 22
 #             key_path: /home/ubuntu/.ssh
             script: | 
