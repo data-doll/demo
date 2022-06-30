@@ -64,7 +64,8 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
-
+      with: 
+         script_stop: false
          
     - name: Deploying
       env:
@@ -84,14 +85,12 @@ jobs:
          
          npm i -g pm2
          
-         mkdir myserver &&
+         mkdir myserver 
          
-         git clone https://github.com/data-doll/demo.git myserver &&
+         git clone https://github.com/data-doll/demo.git myserver 
               
-         cd myserver &&
+         cd myserver 
          
-         npm i &&
-         
-         RUNNER_TRACKING_ID="" &&
-         
+         npm i
+                  
          pm2 start index.js
