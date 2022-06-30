@@ -34,8 +34,9 @@ jobs:
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.SERVER_SSH_KEY }}
-#         port: ${{ secrets.SSH_PORT }}
-        script: whoami
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          whoami
           mkdir node-github-demo
           cd ~/node-github-demo
           git clone https://github.com/data-doll/demo.git ~/node-github-demo
