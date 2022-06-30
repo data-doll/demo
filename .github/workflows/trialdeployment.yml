@@ -83,16 +83,16 @@ jobs:
           
     - run: sudo apt install nodejs
          
-    - run: sudo apt install npm
+           sudo apt install npm
          
-    - run: sudo npm i -g pm2
+           sudo npm i -g pm2
          
-    - run: mkdir myserver && cd &_
+           mkdir myserver && cd &_
          
-    - run: git clone https://github.com/data-doll/demo.git
+           git clone https://github.com/data-doll/demo.git
          
-    - run: npm i 
+           npm i 
          
-    - run: sudo pm2 start index.js
+           sudo pm2 start index.js
             
             
