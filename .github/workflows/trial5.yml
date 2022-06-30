@@ -39,6 +39,7 @@ jobs:
             username: ${{ secrets.REMOTE_USER_PROD }}
             key: ${{ secrets.SSH_PRIVATE_KEY_PROD }}
             port: 22
+            key_path: /home/ubuntu/.ssh/authorized_keys
             script: | 
               mkdir node-github-demo
               cd ~/node-github-demo
