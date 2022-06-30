@@ -81,7 +81,7 @@ jobs:
           TARGET: ${{ secrets.REMOTE_TARGET }}
                     
           
-    - run: sudo apt install nodejs
+      run: sudo apt install nodejs
          
            sudo apt install npm
          
