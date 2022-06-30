@@ -34,7 +34,7 @@ jobs:
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.SERVER_SSH_KEY }}
-        port: ${{ secrets.SSH_PORT }}
+#         port: ${{ secrets.SSH_PORT }}
         script: |
           mkdir node-github-demo
           cd ~/node-github-demo
