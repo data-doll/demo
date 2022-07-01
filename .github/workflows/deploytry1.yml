@@ -61,7 +61,7 @@ jobs:
 #             -rltgoDzvO
 #             --exclude='.git'
 #             --exclude='node_modules/'
-          SOURCE: "./"
+#           SOURCE: "./"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
