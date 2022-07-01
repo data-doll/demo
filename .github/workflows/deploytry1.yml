@@ -16,8 +16,8 @@ jobs:
     - name: Install npm dependencies
       run: npm install &&
            npm -v &&
-           echo "BUILDING"  &&
-           npm run build
+           echo "BUILDING"  
+#            npm run build
            
 
     - name: Deploy to Server
@@ -33,21 +33,21 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
 
-#     - name: Deploying
+    - name: Deploying
 
-#       run:
-#          sudo apt install nodejs
+      run:
+         sudo apt install nodejs
          
-#          sudo apt install npm
+         sudo apt install npm
          
-#          npm i -g pm2
+         npm i -g pm2
          
-#          mkdir myserver 
+         mkdir myserver 
          
-#          git clone https://github.com/data-doll/demo.git myserver 
+         git clone https://github.com/data-doll/demo.git myserver 
               
-#          cd myserver 
+         cd myserver 
          
-#          npm i
+         npm i
                   
-#          pm2 start index.js
+         pm2 start index.js
